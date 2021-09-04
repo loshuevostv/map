@@ -32,11 +32,15 @@
 	flex-wrap: wrap;
 }
 .draggable {
-	height:	8vh;
-	width: 8vh;
+	height:	40px;
+	width: 40px;
     background-position: center;
 	background-size: contain;
     background-repeat: no-repeat;
     flex: none;
     cursor: pointer;
+}
+
+body {
+	background: #333;
 }

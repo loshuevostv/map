@@ -58,3 +58,9 @@ function dragElement(elmnt) {
 	
   }
 };
+
+document.addEventListener("DOMContentLoaded", function(){
+	for (let e of document.getElementById("draggable-items").children) {
+		dragElement(e);
+	}
+});
