@@ -23,4 +23,20 @@
     margin-left: auto;
     -webkit-justify-content: center!important;
     justify-content: center!important;
+	max-width: 1140px;
+}
+
+
+#draggable-items {
+	display: flex;
+	flex-wrap: wrap;
+}
+.draggable {
+	height:	8vh;
+	width: 8vh;
+    background-position: center;
+	background-size: contain;
+    background-repeat: no-repeat;
+    flex: none;
+    cursor: pointer;
 }
