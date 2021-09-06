@@ -30,7 +30,7 @@
 .draggable-items {
 	display: flex;
 	flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     height: 100%;
 	max-height: 866px;
     top: 0;
@@ -40,13 +40,13 @@
 	left: 0;
     background: #5a4aad;
     min-width: 50px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 0px 10px 10px 0px;
 }
 .draggable-items.red-side {
 	right: 0;
     background: #76453c;
     min-width: 50px;
-    border-radius: 0px 10px 10px 0px;
+	border-radius: 10px 0px 0px 10px;
 }
 }
 .draggable {
