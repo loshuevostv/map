@@ -27,9 +27,27 @@
 }
 
 
-#draggable-items {
+.draggable-items {
 	display: flex;
 	flex-wrap: wrap;
+    position: absolute;
+    height: 100%;
+	max-height: 866px;
+    top: 0;
+    flex-direction: column;
+}
+.draggable-items.blue-side {
+	left: 0;
+    background: #5a4aad;
+    min-width: 50px;
+    border-radius: 10px 0px 0px 10px;
+}
+.draggable-items.red-side {
+	right: 0;
+    background: #76453c;
+    min-width: 50px;
+    border-radius: 0px 10px 10px 0px;
+}
 }
 .draggable {
 	height:	50px;
@@ -43,4 +61,23 @@
 
 body {
 	background: #333;
+}
+
+.red-mon {
+    border: 2px solid #ca6e4a;
+    border-radius: 50%;
+    background-color: #ca6e4a;
+}
+
+.blue-mon {
+	border: 2px solid #8473fd;
+    border-radius: 50%;
+    background-color: #7c68ec;
+}
+
+.audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee {
+	opacity: 0.2;
+}
+.zapdos, .rotom, .dreadnaw {
+	oppacity: 0.5;
 }

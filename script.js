@@ -60,7 +60,26 @@ function dragElement(elmnt) {
 };
 
 document.addEventListener("DOMContentLoaded", function(){
-	for (let e of document.getElementById("draggable-items").children) {
-		dragElement(e);
+	for (let c of document.getElementsByClassName("draggable-items")) {
+		for (let e of c.children) {
+			dragElement(e);
+		}
+	}
+	
+	for (let img of document.getElementsByTagName('img')) {
+		if (img.src != undefined) {
+			if (img.src.contains("Audino")) img.classList.add("audino")
+			if (img.src.contains("Aipom")) img.classList.add("aipom")
+			if (img.src.contains("Corphish")) img.classList.add("corphish")
+			if (img.src.contains("Lillipup")) img.classList.add("lillipup")
+			if (img.src.contains("Bouffalant")) img.classList.add("bouffalant")
+			if (img.src.contains("Ludicolo")) img.classList.add("ludicolo")
+			if (img.src.contains("Vespiquen")) img.classList.add("vespiquen")
+			if (img.src.contains("Combee")) img.classList.add("combee")
+			
+			if (img.src.contains("Zapdos")) img.classList.add("zapdos")
+			if (img.src.contains("Rotom")) img.classList.add("rotom")
+			if (img.src.contains("Dreadnaw")) img.classList.add("dreadnaw")
+		}
 	}
 });
