@@ -36,16 +36,15 @@
 	min-width: 120px;
     top: 0;
     flex-direction: column;
+	border-radius: 0px 10px 10px 0px;
 }
 .draggable-items.blue-side {
 	left: 0;
     background: #5a4aad;
-    border-radius: 0px 10px 10px 0px;
 }
 .draggable-items.red-side {
 	right: 0;
     background: #76453c;
-	border-radius: 10px 0px 0px 10px;
 	-webkit-transform: scaleX(-1);
 	transform: scaleX(-1);
 }
