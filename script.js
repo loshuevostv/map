@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			if (img.src.indexOf("Bouffalant") != -1) img.classList.add("bouffalant")
 			if (img.src.indexOf("Ludicolo") != -1) img.classList.add("ludicolo")
 			if (img.src.indexOf("Vespiquen") != -1) img.classList.add("vespiquen")
-			if (img.src.indexOf("Combee") != -1 img.classList.add("combee")
+			if (img.src.indexOf("Combee") != -1) img.classList.add("combee")
 			
 			if (img.src.indexOf("Zapdos") != -1) img.classList.add("zapdos")
 			if (img.src.indexOf("Rotom") != -1) img.classList.add("rotom")
