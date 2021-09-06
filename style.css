@@ -23,28 +23,38 @@
     margin-left: auto;
     -webkit-justify-content: center!important;
     justify-content: center!important;
-	max-width: 1140px;
+	max-width: 1700px;
+	margin-top: -100px;
+}
+.draggable-container {
+	max-height: 866px;
+	min-width: 110px;
+    top: 0;
+    position: fixed;
+	height: 100%;
+}
+.draggable-container.red-side {
+	right: 0;
+}
+.draggable-container.blue-side {
+	left: 0;
 }
 .draggable-items {
 	display: flex;
 	flex-wrap: wrap;
-    position: fixed;
-    height: 100%;
-	max-height: 866px;
-	min-width: 120px;
-    top: 0;
-    flex-direction: column;
+	width: 110px;
+	border-top: 2px solid #2d2d2d7a;
+	padding: 2px;
 }
 .draggable-items.blue-side {
-	left: 0;
     background: #5a4aad;
 	border-radius: 0px 10px 10px 0px;
+	flex-direction: row;
 }
 .draggable-items.red-side {
-	right: 0;
     background: #76453c;
 	border-radius: 10px 0px 0px 10px;
-	flex-wrap: wrap-reverse
+	flex-direction: row-reverse;
 }
 .draggable {
 	height:	50px;
@@ -66,13 +76,13 @@ body {
 .red-mon {
     border: 2px solid #e4825c;
     border-radius: 50%;
-    background-color: #ca6e4a;
+    background-color: #ca6e4a4d;
 }
 
 .blue-mon {
 	border: 2px solid #8473fd;
     border-radius: 50%;
-    background-color: #7c68ec;
+    background-color: #7c68ec4d;
 }
 
 .aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee {
