@@ -48,7 +48,6 @@
     min-width: 50px;
 	border-radius: 10px 0px 0px 10px;
 }
-}
 .draggable {
 	height:	50px;
 	width: 50px;
@@ -58,7 +57,6 @@
     flex: none;
     cursor: pointer;
 }
-
 body {
 	background: #333;
 }

@@ -50,7 +50,7 @@ function dragElement(elmnt) {
     document.onmouseup = null;
     document.onmousemove = null;
 	
-	if (g_tpos >= max) {
+	if (g_tpos >= 101) {
 		elmnt.style.left = elmnt.style.top = elmnt.style.position = "";
 	} else {
 		elmnt.style.top = g_tpos + "%";
@@ -68,18 +68,18 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 	for (let img of document.getElementsByTagName('img')) {
 		if (img.src != undefined) {
-			if (img.src.contains("Audino")) img.classList.add("audino")
-			if (img.src.contains("Aipom")) img.classList.add("aipom")
-			if (img.src.contains("Corphish")) img.classList.add("corphish")
-			if (img.src.contains("Lillipup")) img.classList.add("lillipup")
-			if (img.src.contains("Bouffalant")) img.classList.add("bouffalant")
-			if (img.src.contains("Ludicolo")) img.classList.add("ludicolo")
-			if (img.src.contains("Vespiquen")) img.classList.add("vespiquen")
-			if (img.src.contains("Combee")) img.classList.add("combee")
+			if (img.src.indexOf("Audino") != -1) img.classList.add("audino")
+			if (img.src.indexOf("Aipom") != -1) img.classList.add("aipom")
+			if (img.src.indexOf("Corphish") != -1) img.classList.add("corphish")
+			if (img.src.indexOf("Lillipup") != -1) img.classList.add("lillipup")
+			if (img.src.indexOf("Bouffalant") != -1) img.classList.add("bouffalant")
+			if (img.src.indexOf("Ludicolo") != -1) img.classList.add("ludicolo")
+			if (img.src.indexOf("Vespiquen") != -1) img.classList.add("vespiquen")
+			if (img.src.indexOf("Combee") != -1 img.classList.add("combee")
 			
-			if (img.src.contains("Zapdos")) img.classList.add("zapdos")
-			if (img.src.contains("Rotom")) img.classList.add("rotom")
-			if (img.src.contains("Dreadnaw")) img.classList.add("dreadnaw")
+			if (img.src.indexOf("Zapdos") != -1) img.classList.add("zapdos")
+			if (img.src.indexOf("Rotom") != -1) img.classList.add("rotom")
+			if (img.src.indexOf("Dreadnaw") != -1) img.classList.add("dreadnaw")
 		}
 	}
 });
