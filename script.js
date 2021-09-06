@@ -29,19 +29,12 @@ function dragElement(elmnt) {
     pos4 = e.clientY;
     // set the element's new position:
 	tpos = (elmnt.offsetTop - pos2);
-	if (tpos < 0) tpos = 0;
+	//if (tpos < 0) tpos = 0;
 	lpos = (elmnt.offsetLeft - pos1);
-	if (lpos < 0) lpos = 0;
+	//if (lpos < 0) lpos = 0;
 	
-	tperc = tpos / document.documentElement.clientHeight;
-	lperc = lpos / document.documentElement.clientWidth;
-	
-	tperc = (tperc * 100);
-	
-	g_tpos = tperc;
-	
-    elmnt.style.top = (tperc) + "%";
-    elmnt.style.left = (lperc * 100) + "%";
+    elmnt.style.top = tpos;
+    elmnt.style.left = lpos;
 	elmnt.style.position = "absolute";
   }
 
@@ -49,13 +42,6 @@ function dragElement(elmnt) {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-	
-	if (g_tpos >= 101) {
-		elmnt.style.left = elmnt.style.top = elmnt.style.position = "";
-	} else {
-		elmnt.style.top = g_tpos + "%";
-	}
-	
   }
 };
 
