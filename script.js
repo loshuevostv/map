@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			
 			if (img.src.indexOf("Zapdos") != -1) img.classList.add("zapdos")
 			if (img.src.indexOf("Rotom") != -1) img.classList.add("rotom")
-			if (img.src.indexOf("Dreadnaw") != -1) img.classList.add("dreadnaw")
+			if (img.src.indexOf("Drednaw") != -1) img.classList.add("drednaw")
 		}
 	}
 });
