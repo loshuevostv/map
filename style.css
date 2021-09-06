@@ -11,9 +11,11 @@
 
 .map img:not(.bg):hover {
   max-width: 100%;
+  /*
   cursor: pointer;
   box-shadow: rgba(0,0,0,.3) 3px 3px 4px 0;
   transform: translateY(-2px);
+  */
 }
 .container {
     width: 100%;
@@ -64,6 +66,11 @@
     background-repeat: no-repeat;
     flex: none;
     cursor: pointer;
+}
+.draggable:hover {
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.3) 3px 3px 4px 0;
+  transform: translateY(-2px);
 }
 .draggable.blue-mon {
 	-webkit-transform: scaleX(-1);
