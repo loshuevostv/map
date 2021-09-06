@@ -57,6 +57,8 @@
     background-repeat: no-repeat;
     flex: none;
     cursor: pointer;
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
 }
 body {
 	background: #333;
@@ -78,5 +80,5 @@ body {
 	opacity: 0.2;
 }
 .zapdos, .rotom, .dreadnaw {
-	oppacity: 0.5;
+	opacity: 0.6;
 }
