@@ -44,7 +44,16 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 };
-
+function makeUnselectable(node) {
+    if (node.nodeType == 1) {
+        node.setAttribute("unselectable", "on");
+    }
+    var child = node.firstChild;
+    while (child) {
+        makeUnselectable(child);
+        child = child.nextSibling;
+    }
+}
 document.addEventListener("DOMContentLoaded", function(){
 	for (let c of document.getElementsByClassName("draggable-items")) {
 		for (let e of c.children) {
@@ -68,4 +77,5 @@ document.addEventListener("DOMContentLoaded", function(){
 			if (img.src.indexOf("Drednaw") != -1) img.classList.add("drednaw")
 		}
 	}
+	makeUnselectable(document.getElementsByClassName("map")[0]);
 });
