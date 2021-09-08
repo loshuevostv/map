@@ -102,7 +102,11 @@ body {
     border-radius: 50%;
     background-color: #7c68ec4d;
 }
-
+.aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee, .zapdos, .rotom, .drednaw {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: #ffffff4d;
+}
 .aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee {
 	opacity: 0.2;
 }

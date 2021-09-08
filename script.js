@@ -63,18 +63,18 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 	for (let img of document.getElementsByTagName('img')) {
 		if (img.src != undefined) {
-			if (img.src.indexOf("Audino") != -1) img.classList.add("audino")
-			if (img.src.indexOf("Aipom") != -1) img.classList.add("aipom")
-			if (img.src.indexOf("Corphish") != -1) img.classList.add("corphish")
-			if (img.src.indexOf("Lillipup") != -1) img.classList.add("lillipup")
-			if (img.src.indexOf("Bouffalant") != -1) img.classList.add("bouffalant")
-			if (img.src.indexOf("Ludicolo") != -1) img.classList.add("ludicolo")
-			if (img.src.indexOf("Vespiquen") != -1) img.classList.add("vespiquen")
-			if (img.src.indexOf("Combee") != -1) img.classList.add("combee")
+			if (img.src.indexOf("531.png") != -1) img.classList.add("audino")
+			if (img.src.indexOf("190.png") != -1) img.classList.add("aipom")
+			if (img.src.indexOf("341.png") != -1) img.classList.add("corphish")
+			if (img.src.indexOf("506.png") != -1) img.classList.add("lillipup")
+			if (img.src.indexOf("626.png") != -1) img.classList.add("bouffalant")
+			if (img.src.indexOf("272.png") != -1) img.classList.add("ludicolo")
+			if (img.src.indexOf("416.png") != -1) img.classList.add("vespiquen")
+			if (img.src.indexOf("415.png") != -1) img.classList.add("combee")
 			
-			if (img.src.indexOf("Zapdos") != -1) img.classList.add("zapdos")
-			if (img.src.indexOf("Rotom") != -1) img.classList.add("rotom")
-			if (img.src.indexOf("Drednaw") != -1) img.classList.add("drednaw")
+			if (img.src.indexOf("145.png") != -1) img.classList.add("zapdos")
+			if (img.src.indexOf("479.png") != -1) img.classList.add("rotom")
+			if (img.src.indexOf("834.png") != -1) img.classList.add("drednaw")
 		}
 	}
 	makeUnselectable(document.getElementsByClassName("map")[0]);
