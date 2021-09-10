@@ -54,6 +54,9 @@ function makeUnselectable(node) {
         child = child.nextSibling;
     }
 }
+function toggleArea(elem) {
+	elem.classList.toggle('destroyed')
+}
 document.addEventListener("DOMContentLoaded", function(){
 	for (let c of document.getElementsByClassName("draggable-items")) {
 		for (let e of c.children) {

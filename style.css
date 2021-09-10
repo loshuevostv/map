@@ -113,3 +113,7 @@ body {
 .zapdos, .rotom, .drednaw {
 	opacity: 0.6;
 }
+.destroyed {
+	opacity: 0.3;
+    filter: grayscale(1);
+}
