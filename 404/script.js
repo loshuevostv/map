@@ -101,4 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		mir.classList.toggle('toggled')
 		app.classList.toggle('mirror')
 	}
+	
+	window.history.pushState("404 Map", "404 Unite Coaching Map", "/");
 });
