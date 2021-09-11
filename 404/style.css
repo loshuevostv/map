@@ -144,8 +144,8 @@ body {
 .btnholder {
 	position: absolute;
 	top: 0;
-	width: 10%;
-	left: 45%;
+	width: 15%;
+    left: 42.5%;
 	height: 4%;
 	background: black;
     z-index: 100;
@@ -157,9 +157,9 @@ body {
 .btnholder:hover {
 	cursor: pointer;
 }
-.mirrorbtn, .finalbtn {
+.mirrorbtn, .finalbtn, .resetbtn {
     height: 100%;
-    width: 50%;
+    width: 33.3%;
     color: #bababa;
     text-align: center;
     vertical-align: middle;
@@ -167,7 +167,7 @@ body {
 	font-size: 2vh;
 	
 }
-.mirrorbtn:hover, .finalbtn:hover {
+.mirrorbtn:hover, .finalbtn:hover, .resetbtn:hover {
 	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
 }
 .mirrorbtn {

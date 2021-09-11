@@ -93,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	let mir = document.querySelector('.mirrorbtn');
 	let fin = document.querySelector('.finalbtn');
+	let res = document.querySelector('.resetbtn');
 	fin.onclick = function() {
 		fin.classList.toggle('toggled')
 		cont.classList.toggle('final')
@@ -101,6 +102,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		mir.classList.toggle('toggled')
 		app.classList.toggle('mirror')
 	}
-	
+	res.onclick = function() {
+		for (let c of document.getElementsByClassName("draggable-items")) {
+			for (let e of c.children) {
+				e.style.top = e.style.left = e.style.position = "";
+			}
+		}
+	}
 	window.history.pushState("404 Map", "404 Unite Coaching Map", "/");
+	adaptMapSize()
 });
