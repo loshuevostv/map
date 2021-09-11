@@ -1,0 +1,263 @@
+body {
+	background: #333;
+	overflow: hidden;
+    text-shadow: 2px 2px 0px black, 0px 0px 3px black !important;
+    font-family: 'Exo 2'!important;
+    font-weight: bold!important;
+}
+
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/exo2/v10/7cH1v4okm5zmbvwkAx_sfcEuiD8jWfWsN9C_nps.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/exo2/v10/7cH1v4okm5zmbvwkAx_sfcEuiD8jWfWsOdC_.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.bg {
+	background-image: url("../map.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee, .zapdos, .rotom, .drednaw {
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: #ffffff4d;
+}
+.aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee {
+	opacity: 0.4;
+}
+.zapdos, .rotom, .drednaw {
+	opacity: 0.7;
+}
+
+.map-cont {
+	position: absolute;
+	margin: auto;
+	display: inline-block;
+	width: 100%;
+}
+
+.mbg {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+	width: 100%;
+}
+.mbg, .map-cont {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);	
+}
+.app.mirror > .mbg, .app.mirror > .map-cont {
+	transform: scaleX(-1) translate(50%, -50%);
+}
+
+.marker {
+	position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+	background-size: 100% 100%;
+	width: 3%;
+	aspect-ratio: 1;
+	transition: opacity 0.5s;
+}
+.goal {
+	position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+	background-size: 100% 100%;
+	aspect-ratio: 1;
+	width: 6%;
+	transition: filter 0.5s, opacity 0.5s;
+}
+
+.enemygoal { background-image: url(/resources/web/Goal_Enemy.png); }
+.friendlygoal { background-image: url(/resources/web/Goal_Friendly.png); }
+.app.mirror > * > .enemygoal { background-image: url(/resources/web/Goal_Friendly.png); }
+.app.mirror > * > .friendlygoal { background-image: url(/resources/web/Goal_Enemy.png); }
+
+.zapdos { background-image: url(/resources/pokemon/145.png); width: 6% }
+.rotom { background-image: url(/resources/pokemon/479.png); width: 5% }
+.drednaw { background-image: url(/resources/pokemon/834.png); width: 5% }
+
+.aipom { background-image: url(/resources/pokemon/190.png); }
+.audino { background-image: url(/resources/pokemon/531.png); }
+.corphish { background-image: url(/resources/pokemon/341.png); }
+
+.combee { background-image: url(/resources/pokemon/415.png); width: 2.5% }
+.vespiquen { background-image: url(/resources/pokemon/416.png); width: 3.5% }
+
+.lillipup { background-image: url(/resources/pokemon/506.png); }
+.bouffalant { background-image: url(/resources/pokemon/626.png); width: 4.5% }
+.ludicolo { background-image: url(/resources/pokemon/272.png); width: 4.5% }
+
+.final > .aipom { background-image: url(/resources/pokemon/424.png); }
+.final > .corphish { background-image: url(/resources/pokemon/342.png); }
+.final > .lillipup { background-image: url(/resources/pokemon/507.png); }
+
+:not(.final) > .zapdos {
+	opacity: 0;
+}
+.final > .drednaw, .final > .rotom {
+	opacity: 0;
+}
+.flip {
+	transform: scaleX(-1);
+}
+.etopt1 > #etopt1, .etopt2 > #etopt1, .etopt2 > #etopt2,
+.ftopt1 > #ftopt1, .ftopt2 > #ftopt1, .ftopt2 > #ftopt2,
+.ebott1 > #ebott1, .ebott2 > #ebott1, .ebott2 > #ebott2,
+.fbott1 > #fbott1, .fbott2 > #fbott1, .fbott2 > #fbott2 {
+	opacity: 0.6;
+    filter: grayscale(1);
+}
+
+.et1, .eb1, .ft1, .fb1 {
+	opacity: 0%;
+	transition: opacity 0.5s;
+}
+
+.etopt1 > .et1, .etopt2 > .et1,
+.ebott1 > .eb1, .ebott2 > .eb1,
+.ftopt1 > .ft1, .ftopt2 > .ft1,
+.fbott1 > .fb1, .fbott2 > .fb1 {
+	opacity: 0.4;
+}
+.btnholder {
+	position: absolute;
+	top: 0;
+	width: 10%;
+	left: 45%;
+	height: 4%;
+	background: black;
+    z-index: 100;
+	opacity: 0.8;
+	border-radius: 0 0 25% 25%;
+	display: flex;
+	overflow: hidden;
+}
+.btnholder:hover {
+	cursor: pointer;
+}
+.mirrorbtn, .finalbtn {
+    height: 100%;
+    width: 50%;
+    color: #bababa;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 3.5vh;
+	font-size: 2vh;
+	
+}
+.mirrorbtn:hover, .finalbtn:hover {
+	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
+}
+.mirrorbtn {
+    border-left: 2px solid white;
+    border-right: 1px solid white;
+}
+.finalbtn {
+    border-left: 1px solid white;
+    border-right: 2px solid white;
+}
+.toggled {
+	color: white;
+}
+/* Draggable */
+.draggable-container {
+    top: 50%;
+    transform: translate(0,-25%);
+    position: fixed;
+	height: 100%;
+}
+.draggable-container.red-side {
+	right: 0;
+}
+.draggable-container.blue-side {
+	left: 0;
+}
+.draggable-items {
+	display: flex;
+	flex-wrap: wrap;
+	width: 9vw;
+	border-top: 2px solid #2d2d2d7a;
+	padding: 2px;
+	z-index: 1;
+}
+.draggable-items.blue-side {
+    background: #5a4aad;
+	border-radius: 0px 10px 10px 0px;
+	flex-direction: row;
+}
+.draggable-items.red-side {
+    background: #76453c;
+	border-radius: 10px 0px 0px 10px;
+	flex-direction: row-reverse;
+}
+.draggable {
+	height: 3.5vw;
+	width: 3.5vw;
+    background-position: center;
+	background-size: contain;
+    background-repeat: no-repeat;
+    flex: none;
+    cursor: pointer;
+	z-index: 10;
+}
+.draggable:hover {
+  cursor: pointer;
+  box-shadow: rgba(0,0,0,.3) 3px 3px 4px 0;
+  transform: translateY(-2px);
+  z-index: 20;
+}
+.draggable.blue-mon {
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);	
+}
+body {
+	background: #333;
+}
+
+.red-mon {
+    border: 2px solid #e4825c;
+    border-radius: 50%;
+    background-color: #ca6e4a4d;
+}
+
+.blue-mon {
+	border: 2px solid #8473fd;
+    border-radius: 50%;
+    background-color: #7c68ec4d;
+}
+
+@media (min-aspect-ratio: 1774/1335) {
+	.mbg {
+		height: 100%;
+		width: auto !important;
+	}
+	.draggable {
+		height: 4vh;
+		width: 4vh;
+	}
+	.draggable-items {
+		width: 9vh;
+	}
+}
