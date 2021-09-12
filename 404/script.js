@@ -1,6 +1,7 @@
 const mbg = document.querySelector('.mbg');
 const cont = document.querySelector('.map-cont');
 const app = document.querySelector('.app');
+const timer = document.querySelector('#time');
 
 window.addEventListener('resize', adaptMapSize);
 mbg.addEventListener('load', adaptMapSize)
@@ -85,6 +86,40 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 };
+
+var min2 = false;
+var min7 = false;
+var min9 = false;
+function changeTime(diff) {
+	let time = parseInt(cont.getAttribute('data-time'));
+	if ((time + diff > 600) || (time + diff < 0)) return;
+	time += diff;
+	
+	let m = Math.floor(time / 60);
+	let s = time % 60;
+
+	if (m < 10) m = '0' + m;
+	if (s < 10) s = '0' + s;
+	
+	let v = m + ":" + s;
+	
+	timer.textContent = v;
+	cont.setAttribute('data-time', time);
+	
+	if ((time <= 120 && !min2) || (time > 120 && min2)) {
+		cont.classList.toggle('final')
+		min2 = !min2;
+	}
+	if ((time <= 420 && !min7) || (time > 420 && min7)) {
+		cont.classList.toggle('objective')
+		min7 = !min7;
+	}
+	if ((time <= 570 && !min9) || (time > 570 && min9)) {
+		cont.classList.toggle('initial')
+		min9 = !min9;
+	}
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	for (let c of document.getElementsByClassName("draggable-items")) {
 		for (let e of c.children) {
@@ -92,12 +127,14 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 	let mir = document.querySelector('.mirrorbtn');
-	let fin = document.querySelector('.finalbtn');
+	// let fin = document.querySelector('.timerbtn');
 	let res = document.querySelector('.resetbtn');
-	fin.onclick = function() {
-		fin.classList.toggle('toggled')
-		cont.classList.toggle('final')
-	}
+	let minus = document.querySelector('#dec-time');
+	let plus = document.querySelector('#inc-time');
+	
+	minus.onclick = function() { changeTime(-30) }
+	plus.onclick = function() { changeTime(+30) }
+	
 	mir.onclick = function() {
 		mir.classList.toggle('toggled')
 		app.classList.toggle('mirror')

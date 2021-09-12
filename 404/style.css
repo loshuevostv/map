@@ -4,6 +4,13 @@ body {
     text-shadow: 2px 2px 0px black, 0px 0px 3px black !important;
     font-family: 'Exo 2'!important;
     font-weight: bold!important;
+	
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 @font-face {
@@ -21,15 +28,6 @@ body {
   font-display: swap;
   src: url(https://fonts.gstatic.com/s/exo2/v10/7cH1v4okm5zmbvwkAx_sfcEuiD8jWfWsOdC_.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-.bg {
-	background-image: url("../map.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
 }
 
 .aipom, .audino, .ambipom, .corphish, .lillipup, .bouffalant, .ludicolo, .vespiquen, .combee, .zapdos, .rotom, .drednaw {
@@ -70,13 +68,13 @@ body {
 
 .marker {
 	position: absolute;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 	background-size: 100% 100%;
 	width: 3%;
 	aspect-ratio: 1;
-	transition: opacity 0.5s;
+	transition: opacity 0.5s, background-image 0.9s;
 }
 .goal {
 	position: absolute;
@@ -113,10 +111,12 @@ body {
 .final > .corphish { background-image: url(/resources/pokemon/342.png); }
 .final > .lillipup { background-image: url(/resources/pokemon/507.png); }
 
-:not(.final) > .zapdos {
+:not(.final) > .zapdos,
+:not(.initial) > .no-respawn {
 	opacity: 0;
 }
-.final > .drednaw, .final > .rotom {
+.final > .drednaw, .final > .rotom, 
+:not(.objective) > .drednaw, :not(.objective) > .rotom { 
 	opacity: 0;
 }
 .flip {
@@ -144,42 +144,55 @@ body {
 .btnholder {
 	position: absolute;
 	top: 0;
-	width: 15%;
-    left: 42.5%;
+	width: 20%;
+	left: 38.5%;
 	height: 4%;
-	background: black;
-    z-index: 100;
-	opacity: 0.8;
-	border-radius: 0 0 25% 25%;
+	background: #0000008a;
+	z-index: 100;
+	/* border-radius: 0 0 25% 25%; */
 	display: flex;
 	overflow: hidden;
+	clip-path: url(#timer-clip-path);
+	padding-left: 1%;
+	padding-right: 1%;
 }
 .btnholder:hover {
 	cursor: pointer;
 }
-.mirrorbtn, .finalbtn, .resetbtn {
+.btnholder > *:nth-child(2) {
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+.btnholder > div {
     height: 100%;
     width: 33.3%;
     color: #bababa;
     text-align: center;
     vertical-align: middle;
     line-height: 3.5vh;
-	font-size: 2vh;
-	
+    /* clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); */
+    font-size: 2vh;
+	transition: text-shadow 0.3s;
 }
-.mirrorbtn:hover, .finalbtn:hover, .resetbtn:hover {
+.btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
+.timerbtn > #dec-time:hover, .timerbtn > #inc-time:hover {
 	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
 }
-.mirrorbtn {
-    border-left: 2px solid white;
-    border-right: 1px solid white;
-}
-.finalbtn {
-    border-left: 1px solid white;
-    border-right: 2px solid white;
-}
-.toggled {
+.btnholder > .toggled {
 	color: white;
+}
+.timerbtn { display: inline-flex; }
+.timerbtn > #time {
+	width: 60%;
+}
+.timerbtn:hover > #dec-time, .timerbtn:hover > #inc-time {
+	opacity: 1;
+}
+.timerbtn > #dec-time, .timerbtn > #inc-time {
+	height: 100%;
+    width: 20%;
+	transition: text-shadow 0.3s, opacity 0.2s;
+	opacity: 0;
 }
 /* Draggable */
 .draggable-container {
@@ -232,10 +245,6 @@ body {
 	-webkit-transform: scaleX(-1);
 	transform: scaleX(-1);	
 }
-body {
-	background: #333;
-}
-
 .red-mon {
     border: 2px solid #e4825c;
     border-radius: 50%;
