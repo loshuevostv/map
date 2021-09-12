@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				e.style.top = e.style.left = e.style.position = "";
 			}
 		}
-		cont.setAttribute('data-time', "1000");
+		cont.setAttribute('data-time', "600");
 		changeTime(0)
 	}
 	window.history.pushState("404 Map", "404 Unite Coaching Map", "/");
