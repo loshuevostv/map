@@ -143,8 +143,8 @@ body {
 .btnholder {
 	position: absolute;
 	top: 0;
-	width: 20%;
-	left: 38.5%;
+	width: 15%;
+	left: 40%;
 	height: 4%;
 	background: #0000008a;
 	z-index: 100;
@@ -158,24 +158,47 @@ body {
 .btnholder:hover {
 	cursor: pointer;
 }
-.btnholder > *:nth-child(2) {
-	border-left: 1px solid white;
-	border-right: 1px solid white;
-}
 .btnholder > div {
     height: 100%;
-    width: 33.3%;
+    width: 20%;
     color: #bababa;
     text-align: center;
     vertical-align: middle;
+	align-items: center;
     line-height: 3.5vh;
     /* clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); */
     font-size: 2vh;
-	transition: text-shadow 0.3s;
+	transition: text-shadow 0.3s, opacity 0.2s;
+	display: flex;
+}
+.btnholder > *:nth-child(2) {
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	width: 60%;
+}
+.btnholder > div > img {
+	aspect-ratio: 1;
+	height: 60%;
+	margin: auto;
+}
+.mirrorbtn, .resetbtn {
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-size: 75% 75%;
+	opacity: 0.7;
+}
+.mirrorbtn {
+	background-image: url(../icons/trade.svg);
+	background-position: left;
+}
+.resetbtn {
+	background-image: url(../icons/reset.svg);
+	background-position: right;
 }
 .btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
 .timerbtn > #dec-time:hover, .timerbtn > #inc-time:hover {
 	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
+	opacity: 1;
 }
 .btnholder > .toggled {
 	color: white;
