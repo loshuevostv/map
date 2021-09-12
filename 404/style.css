@@ -144,7 +144,7 @@ body {
 	position: absolute;
 	top: 0;
 	width: 15%;
-	left: 40%;
+	left: 42%;
 	height: 4%;
 	background: #0000008a;
 	z-index: 100;
@@ -188,11 +188,11 @@ body {
 	opacity: 0.7;
 }
 .mirrorbtn {
-	background-image: url(../icons/trade.svg);
+	background-image: url(/resources/icons/trade.svg);
 	background-position: left;
 }
 .resetbtn {
-	background-image: url(../icons/reset.svg);
+	background-image: url(/resources/icons/reset.svg);
 	background-position: right;
 }
 .btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
