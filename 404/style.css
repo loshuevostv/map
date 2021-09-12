@@ -132,7 +132,6 @@ body {
 
 .et1, .eb1, .ft1, .fb1 {
 	opacity: 0%;
-	transition: opacity 0.5s;
 }
 
 .etopt1 > .et1, .etopt2 > .et1,
