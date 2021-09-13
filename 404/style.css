@@ -61,6 +61,7 @@ body {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);	
+	transition: transform 0.35s ease-in-out 0.1s;
 }
 .app.mirror > .mbg, .app.mirror > .map-cont {
 	transform: scaleX(-1) translate(50%, -50%);
@@ -84,7 +85,7 @@ body {
 	background-size: 100% 100%;
 	aspect-ratio: 1;
 	width: 6%;
-	transition: filter 0.5s, opacity 0.5s;
+	transition: filter 0.5s, opacity 0.5s, background-image 0.2s ease-in-out 0.2s;
 }
 
 .enemygoal { background-image: url(/resources/web/Goal_Enemy.png); }
