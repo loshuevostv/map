@@ -279,7 +279,52 @@ body {
     border-radius: 50%;
     background-color: #7c68ec4d;
 }
-
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 2vh;
+	line-height: 3vh;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+.author, .team {
+	color: #bababa;
+	position: absolute;
+	bottom: 0;
+	padding: 1vh;
+}
+.author {
+	right: 0;
+}
+.team {
+	left: 0;
+}
+.author::before, .team::before  {
+    content: ' ';
+    width: 110%;
+    background: #000000a4;
+    height: 100%;
+    position: absolute;
+	z-index: 99;
+	bottom: 0;
+}
+.author::before {
+    transform: skewX(-10deg);
+	right: -10%;
+	border-radius: 0.5vh 0 0 0;
+}
+.team::before {
+    transform: skewX(10deg);
+	left: -10%;
+	border-radius: 0 0.5vh 0 0;
+}
+.team > span, .author > span {
+    z-index: 100;
+    position: relative;	
+}
 @media (min-aspect-ratio: 1774/1335) {
 	.mbg {
 		height: 100%;
