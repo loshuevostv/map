@@ -238,6 +238,7 @@ body {
 	z-index: 1;
 	column-rule-width: thin;
 	width: calc(7vw + 9px);
+	min-height: calc(7vw + 9px);
 }
 .draggable-items.blue-side {
     background: #5a4aad;
@@ -336,6 +337,7 @@ a {
 		width: 4vh;
 	}
 	.draggable-items {
-		width: 9vh;
+		width: calc(8vh + 9px);
+		min-height: calc(8vh + 9px);
 	}
 }
