@@ -220,9 +220,9 @@ body {
 /* Draggable */
 .draggable-container {
     top: 50%;
-    transform: translate(0,-25%);
+    transform: translate(0,-50%);
     position: fixed;
-	height: 100%;
+    height: fit-content;
 }
 .draggable-container.red-side {
 	right: 0;
@@ -233,10 +233,11 @@ body {
 .draggable-items {
 	display: flex;
 	flex-wrap: wrap;
-	width: 9vw;
 	border-top: 2px solid #2d2d2d7a;
 	padding: 2px;
 	z-index: 1;
+	column-rule-width: thin;
+	width: calc(7vw + 9px);
 }
 .draggable-items.blue-side {
     background: #5a4aad;
