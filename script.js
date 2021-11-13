@@ -1,3 +1,45 @@
+const mbg = document.querySelector('.mbg');
+const cont = document.querySelector('.map-cont');
+const app = document.querySelector('.app');
+const timer = document.querySelector('#time');
+
+window.addEventListener('resize', adaptMapSize);
+mbg.addEventListener('load', adaptMapSize)
+
+function updateMapState(elem) {
+	if (elem.id != null && elem.id != undefined) {
+		let t2 = elem.id.replace('t1', 't2');
+		if (elem.id.endsWith('t1') && cont.classList.contains(t2)) {
+			cont.classList.remove(elem.id);
+			cont.classList.remove(t2);
+			return;
+		} 
+		let t1 = elem.id.replace('t2', 't1');
+		if (elem.id.endsWith('t2') && !cont.classList.contains(elem.id)) {
+			cont.classList.add(elem.id);
+			cont.classList.add(t1);
+			return;
+		}
+		cont.classList.toggle(elem.id)
+	}
+}
+
+function adaptMapSize() {
+	cont.width = mbg.width;
+	cont.height = mbg.height;
+	cont.style.width = mbg.width;
+	cont.style.height = mbg.height;
+}
+
+function alignMarkers() {
+	for (let c of document.getElementsByClassName("marker")) {
+		let t = Number(c.style.top.replace('%',''))
+		let l = Number(c.style.left.replace('%',''))
+		c.style.top = Math.round(t*2)/2 + "%";
+		c.style.left = Math.round(l*2)/2 + "%";
+	}
+}
+
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   if (document.getElementById(elmnt.id + "header")) {
@@ -44,41 +86,68 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 };
-function makeUnselectable(node) {
-    if (node.nodeType == 1) {
-        node.setAttribute("unselectable", "on");
-    }
-    var child = node.firstChild;
-    while (child) {
-        makeUnselectable(child);
-        child = child.nextSibling;
-    }
+
+var min2 = false;
+var min7 = false;
+var min9 = false;
+function changeTime(diff) {
+	let time = parseInt(cont.getAttribute('data-time'));
+	if ((time + diff > 600) || (time + diff < 0)) return;
+	time += diff;
+	
+	let m = Math.floor(time / 60);
+	let s = time % 60;
+
+	if (m < 10) m = '0' + m;
+	if (s < 10) s = '0' + s;
+	
+	let v = m + ":" + s;
+	
+	timer.textContent = v;
+	cont.setAttribute('data-time', time);
+	
+	if ((time <= 120 && !min2) || (time > 120 && min2)) {
+		cont.classList.toggle('final')
+		min2 = !min2;
+	}
+	if ((time <= 420 && !min7) || (time > 420 && min7)) {
+		cont.classList.toggle('objective')
+		min7 = !min7;
+	}
+	if ((time <= 570 && !min9) || (time > 570 && min9)) {
+		cont.classList.toggle('initial')
+		min9 = !min9;
+	}
 }
-function toggleArea(elem) {
-	elem.classList.toggle('destroyed')
-}
-document.addEventListener("DOMContentLoaded", function(){
+
+document.addEventListener("DOMContentLoaded", function() {
 	for (let c of document.getElementsByClassName("draggable-items")) {
 		for (let e of c.children) {
 			dragElement(e);
 		}
 	}
+	let mir = document.querySelector('.mirrorbtn');
+	// let fin = document.querySelector('.timerbtn');
+	let res = document.querySelector('.resetbtn');
+	let minus = document.querySelector('#dec-time');
+	let plus = document.querySelector('#inc-time');
 	
-	for (let img of document.getElementsByTagName('img')) {
-		if (img.src != undefined) {
-			if (img.src.indexOf("531.png") != -1) img.classList.add("audino")
-			if (img.src.indexOf("190.png") != -1) img.classList.add("aipom")
-			if (img.src.indexOf("341.png") != -1) img.classList.add("corphish")
-			if (img.src.indexOf("506.png") != -1) img.classList.add("lillipup")
-			if (img.src.indexOf("626.png") != -1) img.classList.add("bouffalant")
-			if (img.src.indexOf("272.png") != -1) img.classList.add("ludicolo")
-			if (img.src.indexOf("416.png") != -1) img.classList.add("vespiquen")
-			if (img.src.indexOf("415.png") != -1) img.classList.add("combee")
-			
-			if (img.src.indexOf("145.png") != -1) img.classList.add("zapdos")
-			if (img.src.indexOf("479.png") != -1) img.classList.add("rotom")
-			if (img.src.indexOf("834.png") != -1) img.classList.add("drednaw")
-		}
+	minus.onclick = function() { changeTime(-30) }
+	plus.onclick = function() { changeTime(+30) }
+	
+	mir.onclick = function() {
+		mir.classList.toggle('toggled')
+		app.classList.toggle('mirror')
 	}
-	makeUnselectable(document.getElementsByClassName("map")[0]);
+	res.onclick = function() {
+		for (let c of document.getElementsByClassName("draggable-items")) {
+			for (let e of c.children) {
+				e.style.top = e.style.left = e.style.position = "";
+			}
+		}
+		cont.setAttribute('data-time', "600");
+		changeTime(0)
+	}
+	window.history.pushState("404 Map", "404 Unite Coaching Map", "/");
+	adaptMapSize()
 });
