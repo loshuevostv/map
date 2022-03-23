@@ -257,7 +257,7 @@ zoomD.onclick = function() {
 	
 		container.addEventListener('mousedown', onMouseDown);
 		container.addEventListener('mousemove', onMouseMove);
-		container.addEventListener('mouseup', onMouseUp);
+		window.addEventListener('mouseup', onMouseUp);
 	}
 	
 	var drawAr = new drawArrowSVG(elm_container);
