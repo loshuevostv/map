@@ -3,13 +3,17 @@
 </head>
 <link rel="stylesheet" href="style.css"/>
 <svg viewBox="0 0 682 125" xmlns="http://www.w3.org/2000/svg" style="position: absolute; pointer-events: none" aria-hidden="true"><defs><clipPath id="timer-clip-path" clipPathUnits="objectBoundingBox" transform="scale(0.00146627566 0.008)"><path d="M6.172 0h669.656a6 6 0 015.905 7.06l-20.273 113a6 6 0 01-5.906 4.94H26.446a6 6 0 01-5.906-4.94L.267 7.06A6 6 0 016.172 0z" fill="#000" fill-rule="evenodd"></path></clipPath></defs></svg>
+<div class="btnholder">
+	<div class="mirrorbtn"></div>
+	<div class="timerbtn"><div id="dec-time">-</div><span id="time">10:00</span><div id="inc-time">+</div></div>
+	<div class="zoombtn zoom-a">A</div>
+	<div class="zoombtn zoom-r">R</div>
+	<div class="zoombtn zoom-z">Z</div>
+	<div class="zoombtn zoom-d">D</div>
+	<div class="resetbtn"></div>
+</div>
 <div class="app">
-	<div class="btnholder">
-		<div class="mirrorbtn"></div>
-		<div class="timerbtn"><div id="dec-time">-</div><span id="time">10:00</span><div id="inc-time">+</div></div>
-		<div class="resetbtn"></div>
-	</div>
-	<img class="mbg" src="/resources/web/map_fix.png" />
+	<img class="mbg" src="resources/web/map_fix.png" />
 	<div class="map-cont initial" data-time="600">
 		<div class="marker drednaw" style="top: 89%; left: 47%;"></div>
 		<div class="marker rotom" style="top: 5%; left: 47%;"></div>
@@ -108,88 +112,42 @@
 		<div class="marker corphish eb1" style="top: 60%; left: 70%;"></div>
 	</div>
 </div>
-<div class="draggable-container blue-side">
-	<div class="draggable-items blue-side">
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/003.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/025.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/038-a.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/282.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/658.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/700.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/724.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/815.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/845.png");'></div>
-	</div>
-	<div class="draggable-items blue-side">
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/009.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/080.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/143.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/473.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/558.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/820.png");'></div>
-	</div>
-	<div class="draggable-items blue-side">
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/006.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/068.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/147.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/445.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/448.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/763.png");'></div>
-	</div>
-	<div class="draggable-items blue-side">
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/040.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/122.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/242.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/830.png");'></div>
-	</div>
-	<div class="draggable-items blue-side">
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/094.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/807.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/663.png");'></div>
-		<div class="draggable blue-mon" style='background-image: url("/resources/pokemon/359.png");'></div>
-	</div>
+<div class="draggable-container blue-side" id="blue-picks">
 </div>
-<div class="draggable-container red-side">
-	<div class="draggable-items red-side">
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/003.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/025.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/038-a.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/282.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/658.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/700.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/724.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/815.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/845.png");'></div>
-	</div>
-	<div class="draggable-items red-side">
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/009.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/080.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/143.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/473.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/558.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/820.png");'></div>
-	</div>
-	<div class="draggable-items red-side">
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/006.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/068.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/147.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/445.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/448.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/763.png");'></div>
-	</div>
-	<div class="draggable-items red-side">
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/040.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/122.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/242.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/830.png");'></div>
-	</div>
-	<div class="draggable-items red-side">
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/094.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/807.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/663.png");'></div>
-		<div class="draggable red-mon" style='background-image: url("/resources/pokemon/359.png");'></div>
-	</div>
+<div class="draggable-container red-side" id="red-picks">
 </div>
-<a href="https://discord.gg/fNdrwFFeKC" target="_blank"><div class="team"><span>WFG Coaching Map</span></div></a>
-<div class="author"><span>By: 404 / EndOfFile<span></div>
+<div class="team"><span>WFG Coaching Map</span></div>
+<div class="author"><span>By: <a href="https://discord.gg/fNdrwFFeKC" target="_blank">404 / EndOfFile</a> [Mod by <a href="https://discord.gg/qkKqHg6Udc">Los Huevos</a>]<span></div>
+<script type="text/javascript" src="picks.js"></script>
+<script type="text/javascript">
+	var d = document.getElementById('blue-picks');
+	for (const cat of picks) {
+		var pad = document.createElement("div");
+		pad.classList.add('draggable-items');
+		pad.classList.add('blue-side');
+		for (const pname of cat) {
+			var picon = document.createElement("div");
+			picon.classList.add('draggable');
+			picon.classList.add('blue-mon');
+			picon.style["background-image"] = `url(https://unite.pokemon.com/images/pokemon/${pname}/roster/roster-${pname}.png)`;
+			pad.appendChild(picon);
+		}
+		d.appendChild(pad);
+	}
+
+	var d = document.getElementById('red-picks');
+	for (const cat of picks) {
+		var pad = document.createElement("div");
+		pad.classList.add('draggable-items');
+		pad.classList.add('red-side');
+		for (const pname of cat) {
+			var picon = document.createElement("div");
+			picon.classList.add('draggable');
+			picon.classList.add('red-mon');
+			picon.style["background-image"] = `url(https://unite.pokemon.com/images/pokemon/${pname}/roster/roster-${pname}.png)`;
+			pad.appendChild(picon);
+		}
+		d.appendChild(pad);
+	}
+</script>
 <script type="text/javascript" src="script.js"></script>

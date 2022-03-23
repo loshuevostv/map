@@ -131,6 +131,42 @@ document.addEventListener("DOMContentLoaded", function() {
 	let res = document.querySelector('.resetbtn');
 	let minus = document.querySelector('#dec-time');
 	let plus = document.querySelector('#inc-time');
+
+	let zoomA = document.querySelector('.zoombtn.zoom-a');
+	let zoomR = document.querySelector('.zoombtn.zoom-r');
+	let zoomZ = document.querySelector('.zoombtn.zoom-z');
+	let zoomD = document.querySelector('.zoombtn.zoom-d');
+
+	zoomA.onclick = function() {
+		app.classList.remove('zoom-rotom');
+		app.classList.remove('zoom-drednaw');
+		app.classList.remove('zoom-zapdos');
+		res.click();
+	};
+
+	zoomR.onclick = function() {
+		app.classList.remove('zoom-rotom');
+		app.classList.remove('zoom-drednaw');
+		app.classList.remove('zoom-zapdos');
+		app.classList.add('zoom-rotom');
+		res.click();
+	};
+
+	zoomZ.onclick = function() {
+		app.classList.remove('zoom-rotom');
+		app.classList.remove('zoom-drednaw');
+		app.classList.remove('zoom-zapdos');
+		app.classList.add('zoom-zapdos');
+		res.click();
+	};
+
+zoomD.onclick = function() {
+	app.classList.remove('zoom-rotom');
+	app.classList.remove('zoom-drednaw');
+	app.classList.remove('zoom-zapdos');
+	app.classList.add('zoom-drednaw');
+	res.click();
+};
 	
 	minus.onclick = function() { changeTime(-30) }
 	plus.onclick = function() { changeTime(+30) }
@@ -147,7 +183,82 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 		cont.setAttribute('data-time', "600");
 		changeTime(0)
+
+		var arrsvg = document.querySelectorAll('.arrsvg');
+		for(var i=0; i<arrsvg.length; i++) arrsvg[i].outerHTML ='';
 	}
-	window.history.pushState("404 Map", "404 Unite Coaching Map", "/");
-	adaptMapSize()
+	adaptMapSize();
+
+	
+	var elm_container = document.querySelector('.app');
+
+	function drawArrowSVG(parent){
+		var me = this;
+		var x, y = 0;
+		var drawarrow =0;
+		var c_e1 ={};
+		var c_e2 ={};
+		var container = parent;
+		var curArrow = null;
+		var drawing = false;
+	
+		function getXYpos(elm) {
+			x = elm.offsetLeft;
+			y = elm.offsetTop;
+	
+			elm = elm.offsetParent;
+
+			while(elm != null) {
+				x = parseInt(x) + parseInt(elm.offsetLeft);
+				y = parseInt(y) + parseInt(elm.offsetTop);
+				elm = elm.offsetParent;
+			}
+	
+			return {'xp':x, 'yp':y};
+		}
+
+		function onMouseDown(e) {
+			var xy_pos = getXYpos(this);
+	
+			x = e.pageX - xy_pos['xp'];
+			y = e.pageY - xy_pos['yp'];
+
+			c_e1 = {x:x, y:y};
+			drawing = true;
+		}
+
+		function onMouseMove(e) {
+			if (!drawing) return;
+
+			var xy_pos = getXYpos(this);
+	
+			x = e.pageX - xy_pos['xp'];
+			y = e.pageY - xy_pos['yp'];
+
+			c_e2 = {x:x, y:y};
+			drawArrow(c_e1, c_e2);
+		}
+
+		function onMouseUp(e) {
+			drawing = false;
+			curArrow = null;
+		}
+	
+		function drawArrow(c_e1, c_e2){
+			if (!curArrow) {
+				var arrsvg = '<svg class="arrsvg active" style="position:absolute; top:0; left:0; margin:0; width:99.8%; height:99.9%;"></svg>';
+				container.insertAdjacentHTML('beforeend', arrsvg);
+				curArrow = document.querySelector('.arrsvg.active');
+				curArrow.classList.remove('active');
+			}
+			
+			curArrow.innerHTML = '<defs><marker id="arrow" markerWidth="8" markerHeight="8" refx="3" refy="4" orient="auto"><path d="M1,1 L1,7 L7,4 L1,1" style="fill:red;" /></marker></defs><path d="M'+ c_e1.x +','+ c_e1.y +' L'+ c_e2.x +','+ c_e2.y +'" style="stroke:red; stroke-width: 5px; fill: none; marker-end: url('+ location.href.replace(/[#]*$/ig, '') +'#arrow);"/>';
+		}
+	
+		container.addEventListener('mousedown', onMouseDown);
+		container.addEventListener('mousemove', onMouseMove);
+		container.addEventListener('mouseup', onMouseUp);
+	}
+	
+	var drawAr = new drawArrowSVG(elm_container);
 });

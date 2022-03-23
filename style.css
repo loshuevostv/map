@@ -63,8 +63,30 @@ body {
 	transform: translate(-50%, -50%);	
 	transition: transform 0.35s ease-in-out 0.1s;
 }
+.zoom-rotom .btnholder, .zoom-zapdos .btnholder, .zoom-drednaw .btnholder {
+	top: 0px;
+}
+.zoom-zapdos .mbg, .zoom-zapdos .map-cont {
+	transform: scale(2.5) translate(-20%, -20%);
+}
+.zoom-drednaw .mbg, .zoom-drednaw .map-cont {
+	transform: scale(2.5) translate(-20%, -50%);
+}
+.zoom-rotom .mbg, .zoom-rotom .map-cont {
+	transform: scale(2.5) translate(-20%, 10%);
+}
+
 .app.mirror > .mbg, .app.mirror > .map-cont {
 	transform: scaleX(-1) translate(50%, -50%);
+}
+.zoom-zapdos.mirror .mbg, .zoom-zapdos.mirror .map-cont {
+	transform: scale(-2.5, 2.5) translate(20%, -20%);
+}
+.zoom-drednaw.mirror .mbg, .zoom-drednaw.mirror .map-cont {
+	transform: scale(-2.5, 2.5) translate(20%, -50%);
+}
+.zoom-rotom.mirror .mbg, .zoom-rotom.mirror .map-cont {
+	transform: scale(-2.5, 2.5) translate(20%, 10%);
 }
 
 .marker {
@@ -77,6 +99,11 @@ body {
 	aspect-ratio: 1;
 	transition: opacity 0.5s, background-image 0.9s;
 }
+
+.zoom-rotom .marker, .zoom-zapdos .marker, .zoom-drednaw .marker {
+	transform: scale(0.5);
+}
+
 .goal {
 	position: absolute;
     background-repeat: no-repeat;
@@ -88,29 +115,29 @@ body {
 	transition: filter 0.5s, opacity 0.5s, background-image 0.2s ease-in-out 0.2s;
 }
 
-.enemygoal { background-image: url(/resources/web/Goal_Enemy.png); }
-.friendlygoal { background-image: url(/resources/web/Goal_Friendly.png); }
-.app.mirror > * > .enemygoal { background-image: url(/resources/web/Goal_Friendly.png); }
-.app.mirror > * > .friendlygoal { background-image: url(/resources/web/Goal_Enemy.png); }
+.enemygoal { background-image: url(resources/web/Goal_Enemy.png); }
+.friendlygoal { background-image: url(resources/web/Goal_Friendly.png); }
+.app.mirror > * > .enemygoal { background-image: url(resources/web/Goal_Friendly.png); }
+.app.mirror > * > .friendlygoal { background-image: url(resources/web/Goal_Enemy.png); }
 
-.zapdos { background-image: url(/resources/pokemon/145.png); width: 6% }
-.rotom { background-image: url(/resources/pokemon/479.png); width: 5% }
-.drednaw { background-image: url(/resources/pokemon/834.png); width: 5% }
+.zapdos { background-image: url(resources/pokemon/145.png); width: 6% }
+.rotom { background-image: url(resources/pokemon/479.png); width: 5% }
+.drednaw { background-image: url(resources/pokemon/834.png); width: 5% }
 
-.aipom { background-image: url(/resources/pokemon/190.png); }
-.audino { background-image: url(/resources/pokemon/531.png); }
-.corphish { background-image: url(/resources/pokemon/341.png); }
+.aipom { background-image: url(resources/pokemon/190.png); }
+.audino { background-image: url(resources/pokemon/531.png); }
+.corphish { background-image: url(resources/pokemon/341.png); }
 
-.combee { background-image: url(/resources/pokemon/415.png); width: 2.5% }
-.vespiquen { background-image: url(/resources/pokemon/416.png); width: 3.5% }
+.combee { background-image: url(resources/pokemon/415.png); width: 2.5% }
+.vespiquen { background-image: url(resources/pokemon/416.png); width: 3.5% }
 
-.lillipup { background-image: url(/resources/pokemon/506.png); }
-.bouffalant { background-image: url(/resources/pokemon/626.png); width: 4.5% }
-.ludicolo { background-image: url(/resources/pokemon/272.png); width: 4.5% }
+.lillipup { background-image: url(resources/pokemon/506.png); }
+.bouffalant { background-image: url(resources/pokemon/626.png); width: 4.5% }
+.ludicolo { background-image: url(resources/pokemon/272.png); width: 4.5% }
 
-.final > .aipom { background-image: url(/resources/pokemon/424.png); }
-.final > .corphish { background-image: url(/resources/pokemon/342.png); }
-.final > .lillipup { background-image: url(/resources/pokemon/507.png); }
+.final > .aipom { background-image: url(resources/pokemon/424.png); }
+.final > .corphish { background-image: url(resources/pokemon/342.png); }
+.final > .lillipup { background-image: url(resources/pokemon/507.png); }
 
 :not(.final) > .zapdos,
 :not(.initial) > .no-respawn {
@@ -170,7 +197,7 @@ body {
     /* clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%); */
     font-size: 2.5vh;
 	transition: text-shadow 0.3s, opacity 0.2s;
-	display: flex;
+	/* display: flex; */
 }
 .btnholder > *:nth-child(2) {
 	border-left: 1px solid white;
@@ -189,11 +216,11 @@ body {
 	opacity: 0.7;
 }
 .mirrorbtn {
-	background-image: url(/resources/icons/trade.svg);
+	background-image: url(resources/icons/trade.svg);
 	background-position: left;
 }
 .resetbtn {
-	background-image: url(/resources/icons/reset.svg);
+	background-image: url(resources/icons/reset.svg);
 	background-position: right;
 }
 .btnholder > .mirrorbtn:hover, .btnholder > .resetbtn:hover,
@@ -201,7 +228,7 @@ body {
 	text-shadow: 2px 2px #76453c, -2px -2px #5a4aad;
 	opacity: 1;
 }
-.btnholder > .toggled {
+.btnholder > .toggled, .zoombtn:hover {
 	color: white;
 }
 .timerbtn { display: inline-flex; }
@@ -333,11 +360,11 @@ a {
 		width: auto !important;
 	}
 	.draggable {
-		height: 4vh;
-		width: 4vh;
+		height: 6vh;
+		width: 6vh;
 	}
 	.draggable-items {
-		width: calc(8vh + 9px);
-		min-height: calc(8vh + 9px);
+		width: calc(26vh + 9px);
+		min-height: calc(6vh + 9px);
 	}
 }
