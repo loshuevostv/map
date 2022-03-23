@@ -168,8 +168,8 @@ zoomD.onclick = function() {
 	res.click();
 };
 	
-	minus.onclick = function() { changeTime(-30) }
-	plus.onclick = function() { changeTime(+30) }
+	minus.onclick = function() { changeTime(-10) }
+	plus.onclick = function() { changeTime(+10) }
 	
 	mir.onclick = function() {
 		mir.classList.toggle('toggled')
